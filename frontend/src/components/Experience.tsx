@@ -5,10 +5,10 @@ import { ScrollReveal } from './ui/ScrollReveal';
 export const Experience = () => {
   const experiences = [
     {
-      title: "Project Trainee Intern",
-      company: "Tata Communications",
-      period: "May 2025 - July 2025",
-      location: "Pune, India",
+      title: "Data Visualization Intern",
+      company: "Infosys Springboard",
+      period: "December 2025 - Present",
+      location: "Remote",
       description: "Network Infrastructure, Virtualization, Storage Solutions, High Availability",
       achievements: [
         "Designed and deployed a 2-node Proxmox VE cluster on Dell EMC PowerEdge R650xs servers with ZFS-mirror storage for enhanced system reliability.",
@@ -21,10 +21,10 @@ export const Experience = () => {
       externalLink: "https://www.tatacommunications.com/"
     },
     {
-      title: "Systems Engineer and Lead",
-      company: "IRIS, NITK",
-      period: "May 2023 - Present",
-      location: "NITK Surathkal, India",
+      title: "Data Analyst",
+      company: "Central Training and Placement Cell",
+      period: "June 2025 - Present",
+      location: "VBSPU, Jaunpur, UP, India",
       description: "Networking, DevOps, Ruby, Virtualization, Docker, Monitoring, CI/CD",
       achievements: [
         "Deployed Dockerized Moodle testbed with Docker Compose for isolated API testing and rapid iteration.",
@@ -37,10 +37,10 @@ export const Experience = () => {
       externalLink: "https://about.iris.nitk.ac.in/"
     },
     {
-      title: "Research Intern",
-      company: "NITK Surathkal",
-      period: "April 2024 - July 2024",
-      location: "NITK Surathkal, India",
+      title: "Data Analytics Intern",
+      company: "Blue Planet Infosolutions Pvt. Ltd.",
+      period: "June 2025 - November 2025",
+      location: "Remote",
       supervisor: "Prof. Mohit P. Tahiliani",
       description: "802.1X, VLANs, NAC, PacketFence, Virtualization, Security",
       achievements: [

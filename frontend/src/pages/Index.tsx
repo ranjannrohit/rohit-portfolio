@@ -5,8 +5,8 @@ import { Navigation } from '@/components/Navigation';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Experience } from '@/components/Experience';
-import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
+import { Projects } from '@/components/Projects';
 import { Education } from '@/components/Education';
 import { Contact } from '@/components/Contact';
 
@@ -33,11 +33,11 @@ const Index = () => {
       <div id="experience">
         <Experience />
       </div>
-      <div id="projects">
-        <Projects />
-      </div>
       <div id="skills">
         <Skills />
+         <div id="projects">
+        <Projects />
+      </div>
       </div>
       <div id="education">
         <Education />

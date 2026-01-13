@@ -1,18 +1,22 @@
 import React from 'react';
-import { Award, Users, Presentation, ExternalLink, Sparkles } from 'lucide-react';
-import { FaNetworkWired, FaCloud, FaDocker, FaLinux, FaGitAlt, FaServer, FaShieldAlt, 
-         FaPython, FaJs, FaReact, FaDatabase, FaAws, FaGoogle, FaMicrosoft, 
-         FaCertificate, FaUserGraduate, FaHandshake } from 'react-icons/fa';
-import { SiKubernetes, SiTerraform, SiAnsible, SiPrometheus, SiGrafana, SiJenkins,
-         SiCisco, SiVmware, SiMongodb, SiPostgresql, SiRedis, SiNginx, SiApache, 
-         SiLua,
-         SiYaml,
-         SiProxmox,
-         SiGithubactions,
-         SiNutanix,
-         SiShell} from 'react-icons/si';
-import { TbPresentation } from 'react-icons/tb';
+import { Award, ExternalLink, Sparkles } from 'lucide-react';
+
+import {
+  FaDatabase,
+  FaPython,
+  FaMicrosoft,
+  FaGitAlt,
+  FaChartBar,
+} from 'react-icons/fa';
+
+import {
+  SiPostgresql,
+  SiPandas,
+  SiNumpy,
+} from 'react-icons/si';
+
 import { ScrollReveal } from './ui/ScrollReveal';
+
 
 export const Skills = () => {
   const CustomIcon = ({ src, alt, fallback, className = "w-5 h-5", iconSize = "w-5 h-5" }: { 
@@ -41,47 +45,44 @@ export const Skills = () => {
   );
 
   const technicalSkills = [
-    { name: 'Networking', icon: <FaNetworkWired color="#4ADE80" /> },
-    { name: 'Cloud Computing', icon: <FaCloud color="#38BDF8" /> },
-    { name: 'Docker', icon: <FaDocker color="#6366F1" /> },
-    { name: 'Kubernetes', icon: <SiKubernetes color="#8B5CF6" /> },
-    { name: 'Linux', icon: <FaLinux color="#F59E0B" /> },
-    { name: 'Git', icon: <FaGitAlt color="#EF4444" /> },
-    { name: 'Terraform', icon: <SiTerraform color="#E879F9" /> },
-    { name: 'Ansible', icon: <SiAnsible color="#6EE7B7" /> },
-    { name: 'CI/CD', icon: <SiJenkins color="#F9A8D4" /> },
-    { name: 'Monitoring', icon: <SiPrometheus color="#A78BFA" /> },
-    { name: 'Grafana', icon: <SiGrafana color="#34D399" /> },
-    { name: 'Security', icon: <FaShieldAlt color="#F472B6" /> },
-    { name: 'Servers', icon: <FaServer color="#A85534" /> },
-    { name: 'Python', icon: <FaPython color="#60A5FA" /> },
-    { name: 'JavaScript', icon: <FaJs color="#FACC15" /> },
-    { name: 'React', icon: <FaReact color="#22D3EE" /> },
-    { name: 'Databases', icon: <FaDatabase color="#FB7185" /> },
-    { name: 'AWS', icon: <FaAws color="#FF9900" /> },
-    { name: 'GCP', icon: <FaGoogle color="#4285F4" /> },
-    { name: 'Azure', icon: <FaMicrosoft color="#00A2E8" /> },
-    { name: 'VMware', icon: <SiVmware color="#60A5FA" /> },
-    { name: 'Cisco', icon: <SiCisco color="#F472B6" /> },
-    { name: 'MongoDB', icon: <SiMongodb color="#4ADE80" /> },
-    { name: 'PostgreSQL', icon: <SiPostgresql color="#38BDF8" /> },
-    { name: 'Redis', icon: <SiRedis color="#EF4444" /> },
-    { name: 'Nginx', icon: <SiNginx color="#60A5FA" /> },
-    { name: 'Apache', icon: <SiApache color="#FACC15" /> },
-    { name: 'YAML', icon: <SiYaml color="#F59E0B" />} ,
-    { name: 'MySQL', icon: <SiPostgresql color="#4479A1" /> },
-    { name: 'Lua', icon: <SiLua color="#2C2D72" /> },
-    { name: 'Proxmox', icon: <SiProxmox color="#FFA500" /> },
-    { name: 'GitHub Actions', icon: <SiGithubactions color="#2088FF" /> },
-    { name: 'Nutanix', icon: <SiNutanix color="#00A2E8" /> },
-    { name: 'Shell Utilities', icon: <SiShell color="#FBBF24" /> },
-  ];
+  { name: 'Data Analysis', icon: <FaDatabase className="text-emerald-400" /> },
+  { name: 'SQL', icon: <SiPostgresql className="text-blue-400" /> },
+  { name: 'MySQL', icon: <FaDatabase className="text-sky-400" /> },
+  { name: 'PostgreSQL', icon: <SiPostgresql className="text-indigo-400" /> },
+  { name: 'Microsoft Excel', icon: <FaMicrosoft className="text-green-400" /> },
+  { name: 'Advanced Excel', icon: <FaMicrosoft className="text-emerald-500" /> },
+  { name: 'Power BI', icon: <FaChartBar className="text-yellow-400" /> },
+  { name: 'Power BI DAX', icon: <FaChartBar className="text-yellow-500" /> },
+  { name: 'Power Query', icon: <FaChartBar className="text-yellow-300" /> },
+  { name: 'Dashboard Design', icon: <FaChartBar className="text-cyan-400" /> },
+  { name: 'Data Visualization', icon: <FaChartBar className="text-purple-400" /> },
+  { name: 'Business Intelligence', icon: <FaChartBar className="text-orange-400" /> },
+  { name: 'KPI Analysis', icon: <FaChartBar className="text-rose-400" /> },
+  { name: 'Reporting & Insights', icon: <FaChartBar className="text-violet-400" /> },
+  { name: 'EDA', icon: <FaChartBar className="text-pink-400" /> },
+  { name: 'Data Cleaning', icon: <FaDatabase className="text-teal-400" /> },
+  { name: 'Data Transformation', icon: <FaDatabase className="text-cyan-500" /> },
+  { name: 'Python', icon: <FaPython className="text-blue-500" /> },
+  { name: 'Pandas', icon: <SiPandas className="text-indigo-400" /> },
+  { name: 'NumPy', icon: <SiNumpy className="text-pink-400" /> },
+  { name: 'Statistical Analysis', icon: <FaDatabase className="text-orange-300" /> },
+  { name: 'Trend Analysis', icon: <FaChartBar className="text-green-300" /> },
+  { name: 'Forecasting Basics', icon: <FaChartBar className="text-yellow-300" /> },
+  { name: 'Data Storytelling', icon: <FaChartBar className="text-rose-300" /> },
+  { name: 'ETL Concepts', icon: <FaDatabase className="text-cyan-300" /> },
+  { name: 'CSV / Excel Handling', icon: <FaDatabase className="text-emerald-300" /> },
+  { name: 'Business Metrics', icon: <FaChartBar className="text-indigo-300" /> },
+  { name: 'A/B Testing Basics', icon: <FaDatabase className="text-pink-300" /> },
+  { name: 'Git', icon: <FaGitAlt className="text-red-400" /> },
+  { name: 'Stakeholder Reporting', icon: <FaChartBar className="text-blue-200" /> },
+];
+
 
   const certifications = [
     {
-      name: "Google Cybersecurity Professional Certificate",
+      name: "Google Data Analytics Professional Certificate",
       issuer: "Google",
-      year: "2023",
+      year: "2025",
       color: "red",
       icon: "/uploads/google.svg",
       externalLink: "https://www.coursera.org/account/accomplishments/specialization/certificate/Z2JGANLU4RUZ"

@@ -310,7 +310,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white">Email</h4>
-                <p className="text-gray-400">awasey8905@gmail.com</p>
+                <p className="text-gray-400">rohitranjan09082002@gmail.com</p>
               </div>
             </div>
             
@@ -320,7 +320,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white">Phone</h4>
-                <p className="text-gray-400">+91-7090344713</p>
+                <p className="text-gray-400">+91-9321043106</p>
               </div>
             </div>
             
@@ -330,7 +330,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white">Location</h4>
-                <p className="text-gray-400">Mangalore, India</p>
+                <p className="text-gray-400">Jaunpur, UP, India</p>
               </div>
             </div>
 

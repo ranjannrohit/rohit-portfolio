@@ -549,4 +549,19 @@
 
 .cyber-line:hover::before {
   transform: scaleX(1);
+}@keyframes skillScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-skill-scroll {
+  animation: skillScroll 18s linear infinite;
+}
+
+.animate-skill-scroll:hover {
+  animation-play-state: paused;
 }

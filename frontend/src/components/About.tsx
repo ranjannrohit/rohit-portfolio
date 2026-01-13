@@ -4,31 +4,31 @@ import { ScrollReveal } from './ui/ScrollReveal';
 
 export const About = () => {
   const highlights = [
-    { icon: Server, label: "Network Engineering", color: "text-emerald-400" },
-    { icon: Cloud, label: "Cloud & DevOps", color: "text-cyan-400" },
-    { icon: Shield, label: "Security Research", color: "text-pink-400" },
-    { icon: Code, label: "Automation", color: "text-violet-400" },
+    { icon: Server, label: "Data Analytics", color: "text-emerald-400" },
+    { icon: Cloud, label: "Business Intelligence", color: "text-cyan-400" },
+    { icon: Shield, label: "Data Visualization", color: "text-pink-400" },
+    { icon: Code, label: "Analytics Automation", color: "text-violet-400" },
   ];
 
   const aboutCards = [
     {
       icon: User,
       title: "Who I Am",
-      description: "A B.Tech student with a knack for building secure, scalable infrastructure. I design resilient network architectures, automate workflows, and deploy high-availability systems across diverse environments.",
+      description: "A B.Tech student specializing in data analytics, focused on transforming raw data into actionable insights through analysis, insights, visualization, and reporting.",
       gradient: "from-violet-500 to-purple-500",
       delay: "0.1s"
     },
     {
       icon: Target,
       title: "Core Competencies",
-      description: "Network Engineering (IPv4/IPv6, Routing, VLANs, Firewalls, VPNs) • DevOps & Automation (Docker, Kubernetes, CI/CD) • Cloud & Virtualization (AWS, GCP, Proxmox) • Security & Research",
+      description: " • Excel • SQL • Power BI  • Python • Data Cleaning & Preprocessing • Exploratory Data Analysis (EDA) • Data Visualization • KPI Tracking • Business Intelligence Reporting",
       gradient: "from-pink-500 to-rose-500",
       delay: "0.2s"
     },
     {
       icon: Lightbulb,
       title: "What Drives Me",
-      description: "I thrive on solving complex networking challenges, automating infrastructure, and sharing knowledge through workshops and open-source projects. Driven by curiosity and a security-first mindset.",
+      description: "I am driven by curiosity and problem-solving, using data analysis to measure performance, uncover opportunities, and support informed business decisions.",
       gradient: "from-cyan-500 to-teal-500",
       delay: "0.3s"
     }
@@ -66,34 +66,34 @@ export const About = () => {
           {/* Profile Section */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             {/* Profile Image */}
-            <ScrollReveal className="flex justify-center order-1 lg:order-2" delay={100} direction="right">
-              <div className="relative group">
-                {/* Animated ring */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 rounded-full opacity-30 blur-2xl animate-pulse-glow group-hover:opacity-50 transition-opacity" />
-                
-                {/* Image container */}
-                <div className="relative w-64 h-64 md:w-80 md:h-80">
-                  {/* Rotating border */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 animate-rotate-slow p-[3px]">
-                    <div className="w-full h-full rounded-full bg-[#0a0a0a]" />
-                  </div>
-                  
-                  {/* Image */}
-                  <div className="absolute inset-[6px] rounded-full overflow-hidden">
-                    <img 
-                      src="/uploads/profile.jpg" 
-                      alt="Abdul Wasey" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
+           <ScrollReveal
+  className="flex justify-center order-1 lg:order-2"
+  delay={100}
+  direction="right"
+>
+  <div className="relative group">
+    <div className="absolute -inset-4 bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 rounded-full opacity-30 blur-2xl animate-pulse-glow" />
 
-                {/* Logo badge */}
-                <div className="absolute -bottom-4 -right-4 bg-[#0a0a0a] p-3 rounded-2xl border border-white/10 shadow-xl">
-                  <img src="/uploads/w453y.svg" alt="w453y" className="h-12 w-12" />
-                </div>
-              </div>
-            </ScrollReveal>
+    <div className="relative w-64 h-64 md:w-80 md:h-80">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 animate-rotate-slow p-[3px]">
+        <div className="w-full h-full rounded-full bg-[#0a0a0a]" />
+      </div>
+
+      <div className="absolute inset-[6px] rounded-full overflow-hidden">
+        <img
+          src="/uploads/profile.jpg"
+          alt="Rohit Ranjan"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+      </div>
+    </div>
+
+    <div className="absolute -bottom-4 -right-4 bg-[#0a0a0a] p-3 rounded-2xl border border-white/10 shadow-xl">
+      <img src="/uploads/logo-animated.svg" alt="Rohit Ranjan" className="h-12 w-12" />
+    </div>
+  </div>
+</ScrollReveal>
+
 
             {/* Highlight badges */}
             <ScrollReveal className="order-2 lg:order-1" delay={200} direction="left">
@@ -111,7 +111,7 @@ export const About = () => {
               </div>
               
               <p className="text-gray-400 leading-relaxed text-lg">
-                Passionate about privacy-first solutions and open-source technologies, I actively share knowledge through technical talks and community contributions. My work spans from enterprise network deployments to cloud-native infrastructure.
+                Passionate about data-driven decision making, I focus on transforming complex datasets into clear insights through analysis, visualization, and reporting that support real business outcomes., I turn raw information into meaningful insights that drive clarity, performance, and smarter decisions.
               </p>
             </ScrollReveal>
           </div>
@@ -152,7 +152,12 @@ export const About = () => {
                   <h3 className="text-xl font-semibold text-violet-400">Current Focus</h3>
                 </div>
                 <ul className="space-y-3">
-                  {["Enterprise Network Engineering & Automation", "IPv6 & Network Automation", "Cloud Integration & Virtualization", "Network Security & Monitoring"].map((item, i) => (
+                  {[
+  "Business & Performance Analytics",
+  "KPI Tracking & Reporting",
+  "Decision-Driven Dashboards",
+  "End-to-End Analytics Pipelines"
+].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-gray-400 text-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-violet-500" />
                       {item}
@@ -169,7 +174,12 @@ export const About = () => {
                   <h3 className="text-xl font-semibold text-pink-400">Research Interests</h3>
                 </div>
                 <ul className="space-y-3">
-                  {["Network Security", "IPv6 & Routing", "Cloud Automation", "Open Source Tools"].map((item, i) => (
+                  {[
+  "Exploratory Data Analysis (EDA)",
+  "SQL-Driven Analytics & Data Modeling",
+  "Visualization-First Analytics (Power BI, Excel)",
+  "Automation of Analytical Workflows"
+].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-gray-400 text-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-pink-500" />
                       {item}

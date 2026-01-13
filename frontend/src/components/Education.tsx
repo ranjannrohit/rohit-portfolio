@@ -39,8 +39,9 @@ export const Education = () => {
                 <div className="flex-shrink-0">
                   <img
                     src="/uploads/nitk.svg"
-                    alt="NITK Surathkal"
-                    className="w-32 h-32 sm:w-40 sm:h-40 object-contain invert brightness-200"
+                    alt="VBSPU"
+                  className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
+
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
@@ -50,18 +51,18 @@ export const Education = () => {
                 <div className="flex-1">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">National Institute of Technology Karnataka, Surathkal</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">Veer Bahadur Singh Purvanchal University</h3>
                       <p className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
                         Bachelor of Technology (B.Tech)
                       </p>
-                      <p className="text-base sm:text-lg text-cyan-400 font-medium mb-2">Metallurgical and Materials Engineering</p>
+                      <p className="text-base sm:text-lg text-cyan-400 font-medium mb-2">Information Technology</p>
                       <div className="flex items-center gap-2 text-gray-500">
                         <MapPin className="w-4 h-4 flex-shrink-0" />
-                        <span className="text-sm sm:text-base">Surathkal, Karnataka, India</span>
+                        <span className="text-sm sm:text-base">Jaunpur, Uttar Pradesh, Jaunpur</span>
                       </div>
                     </div>
                     <a 
-                      href="https://www.nitk.ac.in/" 
+                      href="https://www.vbspu.ac.in/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="self-start p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110"
@@ -91,19 +92,26 @@ export const Education = () => {
                     Academic Focus
                   </h4>
                 </div>
-                <ul className="space-y-3">
-                  {[
-                    "Materials Science & Engineering",
-                    "Process Engineering & Optimization",
-                    "Applied Mathematics & Statistics",
-                    "Computer Science & Programming"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 group/item">
-                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-                      <span className="text-gray-400 leading-relaxed group-hover/item:text-gray-300 transition-colors">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+               <ul className="space-y-3">
+  {[
+    "Data Structures & Algorithms",
+    "Database Management Systems (SQL)",
+    "Data Analytics & Business Intelligence",
+    "Python Programming for Data Analysis",
+    "Operating Systems & Computer Networks"
+  ].map((item, index) => (
+    <li
+      key={index}
+      className="flex items-start gap-3"
+    >
+      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
+      <span className="text-gray-400 leading-relaxed">
+        {item}
+      </span>
+    </li>
+  ))}
+</ul>
+
               </ScrollReveal>
 
               {/* Leadership & Activities */}
@@ -118,10 +126,11 @@ export const Education = () => {
                 </div>
                 <ul className="space-y-3">
                   {[
-                    "Secretary, Systems & Security SIG at WEC",
-                    "CTF Competition Organizer",
+                    "Data Analyst @ CTPC, VBSPU",
+                    "Data analytics project lead",
                     "Technical Workshop Coordinator",
-                    "Research Project Contributor"
+                    "Research Project Contributor",
+                    "Mentored peers in SQL & analytics"
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3 group/item">
                       <div className="w-1.5 h-1.5 bg-violet-500 rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform" />
@@ -145,10 +154,12 @@ export const Education = () => {
                 </div>
                 <ul className="space-y-3">
                   {[
-                    "Active contributor to networking research projects with industry collaboration",
-                    "Led multiple technical workshops on cybersecurity and network infrastructure",
-                    "Recipient of APNIC funding for IPv6 deployment research project"
-                  ].map((item, index) => (
+  "Delivered actionable insights from complex datasets using advanced analytical techniques",
+  "Built business-focused dashboards that improved data visibility and decision-making",
+  "Applied statistical methods to identify trends, patterns, and performance gaps",
+  "Automated data analysis workflows to improve efficiency and accuracy"
+]
+.map((item, index) => (
                     <li key={index} className="flex items-start gap-3 group/item">
                       <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform" />
                       <span className="text-gray-400 text-sm leading-relaxed group-hover/item:text-gray-300 transition-colors">{item}</span>

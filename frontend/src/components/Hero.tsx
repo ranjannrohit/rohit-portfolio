@@ -32,8 +32,8 @@ export const Hero = () => {
 
   const socialLinks = [
     { icon: FaPhone, href: "tel:+91-7090344713", label: "Call", color: "text-emerald-400", hoverBg: "hover:bg-emerald-500/20", hoverBorder: "hover:border-emerald-500/50" },
-    { icon: FaEnvelope, href: "mailto:awasey8905@gmail.com", label: "Email", color: "text-violet-400", hoverBg: "hover:bg-violet-500/20", hoverBorder: "hover:border-violet-500/50" },
-    { icon: FaLinkedin, href: "https://linkedin.com/in/w453y", label: "LinkedIn", color: "text-blue-400", hoverBg: "hover:bg-blue-500/20", hoverBorder: "hover:border-blue-500/50" },
+    { icon: FaEnvelope, href: "rohitranjan09082002@gmail.com", label: "Email", color: "text-violet-400", hoverBg: "hover:bg-violet-500/20", hoverBorder: "hover:border-violet-500/50" },
+    { icon: FaLinkedin, href: "https://linkedin.com/in/rohitranjann", label: "LinkedIn", color: "text-blue-400", hoverBg: "hover:bg-blue-500/20", hoverBorder: "hover:border-blue-500/50" },
     { icon: FaGithub, href: "https://github.com/w453y", label: "GitHub", color: "text-gray-300", hoverBg: "hover:bg-gray-500/20", hoverBorder: "hover:border-gray-400/50" },
     { icon: FaTwitter, href: "https://twitter.com/w453y", label: "Twitter", color: "text-sky-400", hoverBg: "hover:bg-sky-500/20", hoverBorder: "hover:border-sky-500/50" },
     { icon: FaInstagram, href: "https://instagram.com/w453y", label: "Instagram", color: "text-pink-400", hoverBg: "hover:bg-pink-500/20", hoverBorder: "hover:border-pink-500/50" },
@@ -89,7 +89,7 @@ export const Hero = () => {
             {/* Sparkle badge - hidden on mobile */}
             <div className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-4 md:mb-8 animate-fade-in backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-violet-400" />
-              <span className="text-sm text-gray-300">Network Engineer & Systems Architect</span>
+              <span className="text-sm text-gray-300">Data Analyst</span>
             </div>
             
             {/* Main heading with gradient */}
@@ -97,7 +97,7 @@ export const Hero = () => {
               <span className="block text-white mb-2">Hi, I'm</span>
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_auto]">
-                  Abdul Wasey
+                  Rohit Ranjan
                 </span>
                 <span className="absolute -inset-1 bg-gradient-to-r from-violet-600/20 via-pink-600/20 to-cyan-600/20 blur-2xl -z-10" />
               </span>
@@ -114,17 +114,19 @@ export const Hero = () => {
             
             {/* Subtitle with typing effect look */}
             <p className="text-lg md:text-2xl text-gray-400 mb-4 md:mb-6 font-light">
-              <span className="text-violet-400">Network Engineer</span>
+              <span className="text-violet-400">Data Analyst</span>
               <span className="mx-3 text-gray-600">•</span>
-              <span className="text-pink-400">Systems Architect</span>
+              <span className="text-pink-400">Power BI Developer</span>
               <span className="mx-3 text-gray-600">•</span>
-              <span className="text-cyan-400">Open-Source Enthusiast</span>
+              <span className="text-cyan-400">Business Analyst</span>
             </p>
             
             {/* Description */}
             <p className="text-base md:text-lg text-gray-500 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              Architecting resilient, secure, and scalable network infrastructure. 
-              Passionate about automation, open-source, and empowering the tech community.
+             <p className="text-base md:text-lg text-gray-500 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in">
+  Transforming raw data into actionable insights that drive smarter business decisions, with expertise in analytics, visualization, and business intelligence focused on clarity, accuracy, and real-world impact.
+</p>
+
             </p>
             
             {/* Social links grid */}
