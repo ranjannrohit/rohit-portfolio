@@ -1,199 +1,359 @@
 import React from 'react';
-import { User, Target, Lightbulb, Rocket, Code, Shield, Cloud, Server } from 'lucide-react';
+
+import {
+  User,
+  Target,
+  Lightbulb,
+  Code,
+  Shield,
+  Cloud,
+  Database,
+  BarChart3,
+  LineChart,
+  PieChart
+} from 'lucide-react';
+
 import { ScrollReveal } from './ui/ScrollReveal';
 
 export const About = () => {
+
   const highlights = [
-    { icon: Server, label: "Data Analytics", color: "text-emerald-400" },
-    { icon: Cloud, label: "Business Intelligence", color: "text-cyan-400" },
-    { icon: Shield, label: "Data Visualization", color: "text-pink-400" },
-    { icon: Code, label: "Analytics Automation", color: "text-violet-400" },
+
+    {
+      icon: Database,
+      label: "SQL Analytics",
+      color: "text-cyan-400"
+    },
+
+    {
+      icon: Cloud,
+      label: "Business Intelligence",
+      color: "text-violet-400"
+    },
+
+    {
+      icon: Shield,
+      label: "Data Visualization",
+      color: "text-pink-400"
+    },
+
+    {
+      icon: Code,
+      label: "Power BI & Reporting",
+      color: "text-emerald-400"
+    },
+
   ];
 
   const aboutCards = [
+
     {
       icon: User,
+
       title: "Who I Am",
-      description: "A B.Tech student specializing in data analytics, focused on transforming raw data into actionable insights through analysis, insights, visualization, and reporting.",
-      gradient: "from-violet-500 to-purple-500",
-      delay: "0.1s"
+
+      description:
+        "A B.Tech student focused on analytics, dashboards, business intelligence and transforming raw datasets into meaningful insights through reporting and visualization.",
+
+      gradient:
+        "from-violet-500 via-purple-500 to-cyan-500"
     },
+
     {
       icon: Target,
+
       title: "Core Competencies",
-      description: " • Excel • SQL • Power BI  • Python • Data Cleaning & Preprocessing • Exploratory Data Analysis (EDA) • Data Visualization • KPI Tracking • Business Intelligence Reporting",
-      gradient: "from-pink-500 to-rose-500",
-      delay: "0.2s"
+
+      description:
+        "SQL • Advanced Queries • Joins • CTEs • Window Functions • Aggregations • Excel • Power BI • Python • EDA • Dashboard Design • KPI Tracking • Data Cleaning • Business Intelligence Reporting",
+
+      gradient:
+        "from-cyan-500 via-blue-500 to-emerald-500"
     },
+
     {
       icon: Lightbulb,
+
       title: "What Drives Me",
-      description: "I am driven by curiosity and problem-solving, using data analysis to measure performance, uncover opportunities, and support informed business decisions.",
-      gradient: "from-cyan-500 to-teal-500",
-      delay: "0.3s"
+
+      description:
+        "Using analytics to identify trends, evaluate performance, uncover opportunities and support data-driven decision making.",
+
+      gradient:
+        "from-pink-500 via-violet-500 to-purple-500"
     }
+
   ];
 
   return (
-    <section 
-      id="about" 
-      className="relative py-8 md:py-12 overflow-hidden bg-[#0a0a0a]"
+
+    <section
+      id="about"
+      className="relative py-20 md:py-28 overflow-hidden bg-[#0a0a0a]"
     >
-      {/* Animated background elements */}
+
+      {/* Background */}
+
       <div className="absolute inset-0 overflow-hidden">
+
+        {/* Floating Analytics Icons */}
+
+        <div className="absolute top-24 left-20 opacity-10 animate-float">
+
+          <BarChart3 className="w-14 h-14 text-violet-400" />
+
+        </div>
+
+        <div
+          className="absolute top-40 right-24 opacity-10 animate-float"
+          style={{ animationDelay: "1s" }}
+        >
+
+          <Database className="w-14 h-14 text-cyan-400" />
+
+        </div>
+
+        <div
+          className="absolute bottom-32 left-32 opacity-10 animate-float"
+          style={{ animationDelay: "2s" }}
+        >
+
+          <PieChart className="w-14 h-14 text-pink-400" />
+
+        </div>
+
+        <div
+          className="absolute bottom-24 right-24 opacity-10 animate-float"
+          style={{ animationDelay: "1.5s" }}
+        >
+
+          <LineChart className="w-14 h-14 text-emerald-400" />
+
+        </div>
+
+        {/* Gradient Orbs */}
+
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600/10 rounded-full blur-[150px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-pink-600/10 rounded-full blur-[150px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:80px_80px]" />
+
+        <div
+          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-cyan-600/10 rounded-full blur-[150px] animate-pulse-glow"
+          style={{ animationDelay: '1s' }}
+        />
+
+        {/* Grid */}
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:80px_80px]" />
+
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">About </span>
-              <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Me</span>
+
+          {/* Header */}
+
+          <ScrollReveal className="text-center mb-20">
+
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+
+              <span className="text-white">
+
+                About
+
+              </span>
+
+              {" "}
+
+              <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+
+                Me
+
+              </span>
+
             </h2>
-            <div className="flex items-center justify-center gap-2">
+
+            <div className="flex items-center justify-center gap-2 mb-8">
+
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-violet-500" />
+
               <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
+
               <div className="h-px w-24 bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500" />
-              <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" style={{ animationDelay: '0.5s' }} />
+
+              <div
+                className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"
+                style={{ animationDelay: "0.5s" }}
+              />
+
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-500" />
+
             </div>
+
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+
+              Analytics-focused portfolio showcasing projects,
+              certifications, internships and business intelligence experience.
+
+            </p>
+
           </ScrollReveal>
 
-          {/* Profile Section */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            {/* Profile Image */}
-           <ScrollReveal
-  className="flex justify-center order-1 lg:order-2"
-  delay={100}
-  direction="right"
->
-  <div className="relative group">
-    <div className="absolute -inset-4 bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 rounded-full opacity-30 blur-2xl animate-pulse-glow" />
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
 
-    <div className="relative w-64 h-64 md:w-80 md:h-80">
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 animate-rotate-slow p-[3px]">
-        <div className="w-full h-full rounded-full bg-[#0a0a0a]" />
-      </div>
+            {/* Profile */}
 
-      <div className="absolute inset-[6px] rounded-full overflow-hidden">
-        <img
-          src="/uploads/profile.jpg"
-          alt="Rohit Ranjan"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-      </div>
-    </div>
+            <ScrollReveal
+              className="flex justify-center order-1 lg:order-2"
+              delay={100}
+              direction="right"
+            >
 
-    <div className="absolute -bottom-4 -right-4 bg-[#0a0a0a] p-3 rounded-2xl border border-white/10 shadow-xl">
-      <img src="/uploads/logo-animated.svg" alt="Rohit Ranjan" className="h-12 w-12" />
-    </div>
-  </div>
-</ScrollReveal>
+              <div className="relative group">
 
+                {/* Glow */}
 
-            {/* Highlight badges */}
-            <ScrollReveal className="order-2 lg:order-1" delay={200} direction="left">
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {highlights.map((item, index) => (
-                  <div 
-                    key={item.label}
-                    className="group flex items-center gap-3 p-4 rounded-xl liquid-glass hover:bg-white/[0.08] transition-all duration-300"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <item.icon className={`${item.color} w-6 h-6 group-hover:scale-110 transition-transform`} />
-                    <span className="text-gray-300 text-sm font-medium">{item.label}</span>
+                <div className="absolute -inset-5 bg-gradient-to-r from-violet-500 via-cyan-500 to-pink-500 rounded-full opacity-20 blur-3xl animate-pulse-glow" />
+
+                {/* Border */}
+
+                <div className="relative w-72 h-72 md:w-[380px] md:h-[380px]">
+
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500 via-cyan-500 to-pink-500 animate-rotate-slow p-[3px]">
+
+                    <div className="w-full h-full rounded-full bg-[#0a0a0a]" />
+
                   </div>
-                ))}
+
+                  {/* Image */}
+
+                  <div className="absolute inset-[6px] rounded-full overflow-hidden">
+
+                    <img
+                      src="/uploads/profile.jpg"
+                      alt="Rohit Ranjan"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                  </div>
+
+                </div>
+
               </div>
-              
-              <p className="text-gray-400 leading-relaxed text-lg">
-                Passionate about data-driven decision making, I focus on transforming complex datasets into clear insights through analysis, visualization, and reporting that support real business outcomes., I turn raw information into meaningful insights that drive clarity, performance, and smarter decisions.
-              </p>
+
             </ScrollReveal>
+
+            {/* Content */}
+
+            <ScrollReveal
+              className="order-2 lg:order-1"
+              delay={200}
+              direction="left"
+            >
+
+              {/* Highlight Cards */}
+
+              <div className="grid grid-cols-2 gap-4 mb-10">
+
+                {highlights.map((item, index) => (
+
+                  <div
+                    key={item.label}
+                    className="group flex items-center gap-3 p-4 rounded-xl liquid-glass hover:bg-white/[0.08] hover:-translate-y-1 transition-all duration-300"
+                    style={{
+                      animationDelay: `${index * 0.1}s`
+                    }}
+                  >
+
+                    <item.icon
+                      className={`${item.color} w-6 h-6 group-hover:scale-110 transition-transform duration-300`}
+                    />
+
+                    <span className="text-gray-300 text-sm font-medium">
+
+                      {item.label}
+
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+              {/* Paragraph */}
+
+              <p className="text-gray-400 leading-relaxed text-lg md:text-xl">
+
+                Focused on analytics, SQL-driven insights, dashboard development,
+                KPI tracking and business intelligence reporting. I enjoy
+                transforming raw datasets into actionable insights through SQL,
+                Power BI, Excel and analytical workflows.
+
+              </p>
+
+            </ScrollReveal>
+
           </div>
 
           {/* About Cards */}
+
           <div className="grid md:grid-cols-3 gap-6">
+
             {aboutCards.map((card, index) => (
-              <ScrollReveal 
+
+              <ScrollReveal
                 key={card.title}
                 delay={index * 100}
               >
-                <div 
-                  className="group relative p-6 rounded-2xl liquid-glass hover:-translate-y-2 transition-transform duration-300 h-full"
-                >
-                  {/* Hover glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
-                  
+
+                <div className="group relative p-7 rounded-2xl liquid-glass hover:border-white/10 hover:-translate-y-3 hover:shadow-2xl transition-all duration-500 h-full overflow-hidden">
+
+                  {/* Hover Glow */}
+
+                  <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`} />
+
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${card.gradient} p-[1px] mb-4`}>
-                    <div className="w-full h-full rounded-xl bg-[#0a0a0a] flex items-center justify-center">
-                      <card.icon className="w-6 h-6 text-white" />
+
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.gradient} p-[1px] mb-5`}>
+
+                    <div className="w-full h-full rounded-2xl bg-[#0a0a0a] flex items-center justify-center">
+
+                      <card.icon className="w-7 h-7 text-white" />
+
                     </div>
+
                   </div>
-                  
-                  <h3 className="text-xl font-semibold text-white mb-3">{card.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{card.description}</p>
+
+                  {/* Title */}
+
+                  <h3 className="text-2xl font-semibold text-white mb-4">
+
+                    {card.title}
+
+                  </h3>
+
+                  {/* Description */}
+
+                  <p className="text-gray-400 leading-relaxed text-[15px]">
+
+                    {card.description}
+
+                  </p>
+
                 </div>
+
               </ScrollReveal>
+
             ))}
+
           </div>
 
-          {/* Focus Areas */}
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
-            <ScrollReveal delay={0}>
-              <div className="group p-6 rounded-2xl liquid-glass-purple hover:border-violet-500/30 transition-all duration-300 h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <Target className="text-violet-400 w-6 h-6" />
-                  <h3 className="text-xl font-semibold text-violet-400">Current Focus</h3>
-                </div>
-                <ul className="space-y-3">
-                  {[
-  "Business & Performance Analytics",
-  "KPI Tracking & Reporting",
-  "Decision-Driven Dashboards",
-  "End-to-End Analytics Pipelines"
-].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-400 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-violet-500" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <div className="group p-6 rounded-2xl liquid-glass-pink hover:border-pink-500/30 transition-all duration-300 h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <Rocket className="text-pink-400 w-6 h-6" />
-                  <h3 className="text-xl font-semibold text-pink-400">Research Interests</h3>
-                </div>
-                <ul className="space-y-3">
-                  {[
-  "Exploratory Data Analysis (EDA)",
-  "SQL-Driven Analytics & Data Modeling",
-  "Visualization-First Analytics (Power BI, Excel)",
-  "Automation of Analytical Workflows"
-].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-400 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-pink-500" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
+
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
     </section>
+
   );
+
 };

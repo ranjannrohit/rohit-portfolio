@@ -5,73 +5,163 @@ interface IntroPageProps {
 }
 
 export const IntroPage: React.FC<IntroPageProps> = ({ onComplete }) => {
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+
     const interval = setInterval(() => {
+
       setProgress(prev => {
+
         if (prev >= 100) {
+
           clearInterval(interval);
+
           return 100;
+
         }
+
         return prev + 2;
+
       });
-    }, 30);
+
+    }, 28);
 
     const timer = setTimeout(() => {
+
       onComplete();
-    }, 2000);
+
+    }, 2200);
 
     return () => {
+
       clearTimeout(timer);
+
       clearInterval(interval);
+
     };
+
   }, [onComplete]);
 
   return (
+
     <div className="fixed inset-0 z-50 bg-[#0a0a0a] flex items-center justify-center overflow-hidden">
-      {/* Animated background orbs */}
+
+      {/* Background */}
+
       <div className="absolute inset-0">
+
+        {/* Gradient Orbs */}
+
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-[150px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-[150px] animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[180px] animate-morph" />
+
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-[150px] animate-pulse-glow"
+          style={{ animationDelay: '0.5s' }}
+        />
+
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[180px]" />
+
+        {/* Grid */}
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
       </div>
 
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      {/* Main Content */}
 
       <div className="text-center relative z-10">
+
         <div className="animate-scale-in">
-          {/* Logo with glow effect */}
-          <div className="relative mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-violet-500/30 via-pink-500/30 to-cyan-500/30 rounded-full blur-3xl animate-pulse-glow" />
-            <img 
-              src="/uploads/w453y.svg" 
-              alt="w453y Logo" 
-              className="h-64 w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 mx-auto relative z-10"
-            />
+
+          {/* Analytics Loader */}
+
+          <div className="relative mb-10 flex justify-center">
+
+            <div className="relative w-40 h-40 flex items-center justify-center">
+
+              {/* Outer Ring */}
+
+              <div className="absolute inset-0 rounded-full border border-violet-500/20" />
+
+              {/* Animated Ring */}
+
+              <div className="absolute inset-0 rounded-full border-t-2 border-r-2 border-violet-500 animate-spin" />
+
+              {/* Second Ring */}
+
+              <div
+                className="absolute inset-3 rounded-full border-b-2 border-cyan-400 animate-spin"
+                style={{
+                  animationDirection: 'reverse',
+                  animationDuration: '3s'
+                }}
+              />
+
+              {/* Center Text */}
+
+              <div className="text-center">
+
+                <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+
+                  RR
+
+                </h1>
+
+                <p className="text-gray-500 text-xs tracking-[0.3em] mt-2">
+
+                  ANALYTICS
+
+                </p>
+
+              </div>
+
+            </div>
+
           </div>
 
-          {/* Loading bar */}
-          <div className="w-48 md:w-64 h-1 bg-white/10 rounded-full mx-auto overflow-hidden">
-            <div 
+          {/* Name */}
+
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">
+
+            Rohit Ranjan
+
+          </h2>
+
+          {/* Subtitle */}
+
+          <p className="text-gray-500 text-sm md:text-base tracking-[0.2em] uppercase mb-10">
+
+            Data Analyst • Power BI • Business Intelligence
+
+          </p>
+
+          {/* Progress Bar */}
+
+          <div className="w-56 md:w-72 h-[6px] bg-white/5 rounded-full mx-auto overflow-hidden">
+
+            <div
               className="h-full bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 rounded-full transition-all duration-100 ease-out"
               style={{ width: `${progress}%` }}
             />
+
           </div>
 
-          {/* Loading text */}
-          <p className="mt-4 text-gray-500 text-sm animate-pulse">
-            Loading experience...
+          {/* Loading Text */}
+
+          <p className="mt-5 text-gray-600 text-sm">
+
+            Initializing analytics experience...
+
           </p>
+
         </div>
+
       </div>
 
-      {/* Corner decorations */}
-      <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-violet-500/30" />
-      <div className="absolute top-8 right-8 w-20 h-20 border-r-2 border-t-2 border-pink-500/30" />
-      <div className="absolute bottom-8 left-8 w-20 h-20 border-l-2 border-b-2 border-cyan-500/30" />
-      <div className="absolute bottom-8 right-8 w-20 h-20 border-r-2 border-b-2 border-violet-500/30" />
     </div>
+
   );
+
 };

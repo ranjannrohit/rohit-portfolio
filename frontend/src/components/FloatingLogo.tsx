@@ -1,45 +1,78 @@
-
 import React, { useState, useEffect } from 'react';
 
+import { ArrowUp } from 'lucide-react';
+
 export const FloatingLogo = () => {
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+
     const toggleVisibility = () => {
-      if (window.pageYOffset > 100) {
+
+      if (window.pageYOffset > 300) {
+
         setIsVisible(true);
+
       } else {
+
         setIsVisible(false);
+
       }
+
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener(
+      'scroll',
+      toggleVisibility
+    );
+
+    return () =>
+      window.removeEventListener(
+        'scroll',
+        toggleVisibility
+      );
+
   }, []);
 
   const scrollToTop = () => {
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
+
   };
 
   return (
+
     <div
-      className={`hidden md:block fixed top-8 left-8 z-50 transition-all duration-300 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+      className={`hidden md:block fixed bottom-8 right-8 z-50 transition-all duration-500 ${
+        isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-8 pointer-events-none'
       }`}
     >
+
       <button
         onClick={scrollToTop}
-        className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-3 hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+        className="group relative w-14 h-14 rounded-2xl overflow-hidden"
       >
-        <img 
-          src="/uploads/w453y.svg" 
-          alt="w453y" 
-          className="h-12 w-auto opacity-90 group-hover:opacity-100 transition-opacity" 
-        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-600" />
+
+        <div className="absolute inset-[2px] bg-[#0a0a0a] rounded-2xl" />
+
+        <div className="relative z-10 flex items-center justify-center w-full h-full">
+
+          <ArrowUp className="text-white group-hover:-translate-y-1 transition-transform duration-300" />
+
+        </div>
+
       </button>
+
     </div>
+
   );
+
 };
