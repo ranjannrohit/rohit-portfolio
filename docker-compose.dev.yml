@@ -1,0 +1,155 @@
+# =============================================================================
+# DEVELOPMENT DOCKER COMPOSE CONFIGURATION WITH NGINX PROXY
+# =============================================================================
+# This file sets up a development environment that mirrors production:
+# - NGINX reverse proxy on port 80 (with authentication bypass)
+# - Frontend and backend accessible only through NGINX
+# - Hot reloading for both frontend and backend
+# - Volume mounts for source code changes
+# - All authentication bypassed for development convenience
+#
+# SETUP (REQUIRED):
+# 1. Copy .env.development.example to .env.development
+# 2. Update email credentials in .env.development
+# 3. Run: docker compose -f docker-compose.dev.yml --env-file .env.development up --build
+#
+# ACCESS:
+# - Portfolio Website: http://localhost (port 80 through NGINX)
+# - Backend API: http://localhost/api/* (proxied through NGINX)
+# - NGINX Health: http://localhost/nginx-health
+#
+# NOTE: All environment variables MUST be set in .env.development
+# Use --env-file .env.development flag to load variables for Docker Compose interpolation
+# =============================================================================
+
+services:
+  # NGINX Reverse Proxy - Development Mode (with auth bypass)
+  nginx:
+    image: nginx:alpine
+    container_name: portfolio-nginx-dev
+    ports:
+      - "80:80"  # Map NGINX to host port 80
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      portfolio-network:
+        ipv4_address: 172.20.0.10
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/nginx-health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # React Frontend - Development Mode (behind NGINX proxy)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-frontend-dev
+    env_file:
+      - .env.development
+    volumes:
+      - ./frontend/src:/app/src:ro  # Mount source for hot reloading
+      - ./frontend/public:/app/public:ro  # Mount public assets
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - VITE_API_URL=http://localhost  # Use NGINX proxy URL
+      - VITE_BACKEND_URL=http://localhost  # Use NGINX proxy URL
+    networks:
+      portfolio-network:
+        ipv4_address: ${FRONTEND_IP}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Backend API Server - Development Mode (behind NGINX proxy, No Auth)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-backend-dev
+    env_file:
+      - .env.development
+    volumes:
+      - ./backend/src:/app/src:ro  # Mount source for hot reloading
+      - backend_data:/app/data
+      - backend_logs:/app/logs
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - HOST=${HOST}
+      - CORS_ORIGINS=http://localhost,http://127.0.0.1  # NGINX proxy origins
+      - DATABASE_PATH=${DATABASE_PATH}
+      
+      # Gmail SMTP Configuration
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_SECURE=${SMTP_SECURE}
+      - SMTP_USER=${GMAIL_USER}
+      - SMTP_PASS=${GMAIL_APP_PASSWORD}
+      - FROM_EMAIL=${FROM_EMAIL}
+      - TO_EMAIL=${TO_EMAIL}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - MESSAGE_ID_DOMAIN=${MESSAGE_ID_DOMAIN}
+      
+      # Gmail API Configuration (optional - for conversation threading)
+      - GMAIL_CLIENT_ID=${GMAIL_CLIENT_ID}
+      - GMAIL_CLIENT_SECRET=${GMAIL_CLIENT_SECRET}
+      - GMAIL_REDIRECT_URI=${GMAIL_REDIRECT_URI}
+      - GMAIL_REFRESH_TOKEN=${GMAIL_REFRESH_TOKEN}
+      - GMAIL_ACCESS_TOKEN=${GMAIL_ACCESS_TOKEN}
+      
+      # Security & Other Settings (Development - Auth Disabled)
+      - JWT_SECRET=${JWT_SECRET}
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - ADMIN_USER=${ADMIN_USER}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - BCRYPT_ROUNDS=${BCRYPT_ROUNDS}
+      - RATE_LIMIT_WINDOW=${RATE_LIMIT_WINDOW}
+      - RATE_LIMIT_MAX=${RATE_LIMIT_MAX}
+      - CONTACT_RATE_LIMIT_WINDOW=${CONTACT_RATE_LIMIT_WINDOW}
+      - CONTACT_RATE_LIMIT_MAX=${CONTACT_RATE_LIMIT_MAX}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - LOG_FILE=${LOG_FILE}
+      - MAX_MESSAGE_LENGTH=${MAX_MESSAGE_LENGTH}
+      - MIN_MESSAGE_LENGTH=${MIN_MESSAGE_LENGTH}
+      
+      # Development Mode - Disable Backend Authentication
+      - DISABLE_BACKEND_AUTH=true
+      
+      # Timeout Configuration
+      - REQUEST_TIMEOUT=60000  # 60 seconds
+      - API_TIMEOUT=60000      # 60 seconds
+    networks:
+      portfolio-network:
+        ipv4_address: ${BACKEND_IP}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  backend_data:
+    driver: local
+  backend_logs:
+    driver: local
+
+networks:
+  portfolio-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${NETWORK_SUBNET}
+          gateway: ${NETWORK_GATEWAY}

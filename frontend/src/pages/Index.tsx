@@ -1,0 +1,52 @@
+
+import React, { useState } from 'react';
+import { IntroPage } from '@/components/IntroPage';
+import { Navigation } from '@/components/Navigation';
+import { Hero } from '@/components/Hero';
+import { About } from '@/components/About';
+import { Experience } from '@/components/Experience';
+import { Skills } from '@/components/Skills';
+import { Projects } from '@/components/Projects';
+import { Education } from '@/components/Education';
+import { Contact } from '@/components/Contact';
+
+const Index = () => {
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
+  if (showIntro) {
+    return <IntroPage onComplete={handleIntroComplete} />;
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+      <Navigation />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="experience">
+        <Experience />
+      </div>
+      <div id="skills">
+        <Skills />
+         <div id="projects">
+        <Projects />
+      </div>
+      </div>
+      <div id="education">
+        <Education />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
+    </div>
+  );
+};
+
+export default Index;
